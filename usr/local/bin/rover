@@ -1,0 +1,10 @@
+#!/bin/sh
+if [ -z "$1" ]
+  then
+    #sudo service --status-all | grep Rover
+    ps -A | grep Rover
+  else
+    sudo service gpsd $1
+    sudo service RoverRest $1
+    sudo service RoverTelemetry $1
+fi
